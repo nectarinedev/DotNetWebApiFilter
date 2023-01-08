@@ -1,9 +1,12 @@
+using DotNetWebApiFilter.Filters;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers(option =>
+{
+    option.Filters.Add<LoggingFilter>();
+    option.Filters.Add<LoggingAsyncFilter>();
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
