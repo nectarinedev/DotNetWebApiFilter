@@ -6,6 +6,7 @@ builder.Services.AddControllers(option =>
 {
     option.Filters.Add<LoggingFilter>();
     option.Filters.Add<LoggingAsyncFilter>();
+    option.Filters.Add<ExceptionFilter>();
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
